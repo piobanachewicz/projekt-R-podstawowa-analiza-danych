@@ -1,0 +1,157 @@
+Podsumowanie statystyk dla poszczegolnych grup bez podzialu na plec
+
+ wiek 
+     grupa minimun maksimum mediana srednia odchylenie_standardowe IQR
+1    CHOR1      17       43      29   29.56               5.881326   6
+2    CHOR2      21       42      30   30.04               5.898305   8
+3 KONTROLA      23       48      32   32.32               5.610407   6
+
+
+ hsCRP 
+     grupa  minimun maksimum mediana  srednia odchylenie_standardowe     IQR
+1    CHOR1 0.487607  42.6499 3.96646 6.103022               8.824633 2.67086
+2    CHOR2 0.335089  19.2124 3.44546 5.536029               4.645587 6.53121
+3 KONTROLA 0.758440  14.3951 4.22037 5.295149               3.996580 4.54994
+
+
+ ERY 
+     grupa minimun maksimum mediana srednia odchylenie_standardowe  IQR
+1    CHOR1    3.53    33.00    4.20  5.3628              5.7671603 0.44
+2    CHOR2    3.25     5.04    4.27  4.1976              0.4653697 0.58
+3 KONTROLA    3.09     5.05    3.98  4.0132              0.4571171 0.51
+
+
+ PLT 
+     grupa minimun maksimum mediana srednia odchylenie_standardowe IQR
+1    CHOR1     128      336     217  225.28               54.22293  87
+2    CHOR2      91      456     195  209.12               75.22318  51
+3 KONTROLA     147      434     214  225.88               63.81309  66
+
+
+ HGB 
+     grupa minimun maksimum mediana  srednia odchylenie_standardowe    IQR
+1    CHOR1  9.5049  14.4990 12.4047 12.40173               1.193449 1.2888
+2    CHOR2  9.8271  22.2318 12.5658 12.80616               2.373023 1.9332
+3 KONTROLA  9.5049  13.2102 11.4381 11.29980               1.074758 1.6110
+
+
+ HCT 
+     grupa minimun maksimum mediana  srednia odchylenie_standardowe   IQR
+1    CHOR1  0.2800    0.405   0.363 0.363560             0.03081136 0.036
+2    CHOR2  0.0423    0.412   0.360 0.345972             0.07303785 0.060
+3 KONTROLA  0.2790    0.389   0.339 0.337560             0.03025872 0.033
+
+
+ MCHC 
+     grupa minimun maksimum mediana  srednia odchylenie_standardowe     IQR
+1    CHOR1 32.5556  36.8742 35.0471 35.12882              0.8775039 0.88033
+2    CHOR2 32.8878  38.8674 35.5454 35.55204              1.2906016 1.16270
+3 KONTROLA 32.0573  36.0437 34.5488 34.40263              1.1197078 1.49490
+
+
+ MON 
+     grupa minimun maksimum mediana   srednia odchylenie_standardowe  IQR
+1    CHOR1    0.48     1.52    0.76 0.8578811              0.2929446 0.46
+2    CHOR2    0.14     7.00    0.66 0.9528000              1.2978685 0.33
+3 KONTROLA    0.35     1.25    0.76 0.7604000              0.1875162 0.21
+
+
+ LEU 
+     grupa minimun maksimum mediana srednia odchylenie_standardowe  IQR
+1    CHOR1    6.79    16.81   11.66 12.0220               2.582079 4.37
+2    CHOR2    7.95    16.59   12.00 12.0376               2.318206 2.64
+3 KONTROLA    4.83    17.46   10.68 11.3604               3.081249 4.37
+
+
+
+Podsumowanie statystyk dla poszczegolnych grup z podzialem na plec
+
+ wiek 
+     grupa plec minimun maksimum mediana  srednia odchylenie_standardowe  IQR
+1    CHOR1    k      17       39    29.5 29.28571               5.525167 4.75
+2    CHOR1    m      23       43    29.0 29.90909               6.564367 7.50
+3    CHOR2    k      22       41    33.0 32.41667               5.680242 6.00
+4    CHOR2    m      21       42    27.0 27.84615               5.398243 6.00
+5 KONTROLA    k      28       39    32.0 32.35714               3.629095 5.50
+6 KONTROLA    m      23       48    32.0 32.27273               7.643179 8.00
+
+
+ hsCRP 
+     grupa plec  minimun maksimum  mediana  srednia odchylenie_standardowe      IQR
+1    CHOR1    k 0.803675  5.36056 2.877635 3.133196               1.606276 2.795062
+2    CHOR1    m 0.487607 42.64990 4.699380 9.882801              12.469186 8.452255
+3    CHOR2    k 0.335089 19.21240 3.242990 6.136922               6.010576 8.598070
+4    CHOR2    m 0.886946  9.82813 3.445460 4.981359               3.058130 5.461410
+5 KONTROLA    k 0.916745 14.39510 3.804335 5.583889               4.844789 6.377767
+6 KONTROLA    m 0.758440  9.64872 4.252800 4.927662               2.748732 4.123560
+
+
+ ERY 
+     grupa plec minimun maksimum mediana  srednia odchylenie_standardowe    IQR
+1    CHOR1    k    3.53    33.00   4.455 6.306429              7.6913264 0.4625
+2    CHOR1    m    3.66     4.51   4.180 4.161818              0.2961019 0.3800
+3    CHOR2    k    3.25     4.82   4.000 4.005000              0.4770268 0.5025
+4    CHOR2    m    3.73     5.04   4.380 4.375385              0.3914208 0.3400
+5 KONTROLA    k    3.09     5.05   4.175 4.146429              0.4774871 0.5275
+6 KONTROLA    m    3.13     4.44   3.850 3.843636              0.3855197 0.2300
+
+
+ PLT 
+     grupa plec minimun maksimum mediana  srednia odchylenie_standardowe   IQR
+1    CHOR1    k     179      333   240.5 246.0714               44.17180 66.75
+2    CHOR1    m     128      336   177.0 198.8182               56.07463 40.00
+3    CHOR2    k      96      314   194.5 206.0833               62.20415 50.50
+4    CHOR2    m      91      456   195.0 211.9231               88.04777 46.00
+5 KONTROLA    k     147      434   208.0 228.7143               74.14894 57.75
+6 KONTROLA    m     157      313   219.0 222.2727               50.99037 61.00
+
+
+ HGB 
+     grupa plec minimun maksimum  mediana  srednia odchylenie_standardowe      IQR
+1    CHOR1    k  9.5049  14.4990 13.04910 12.58881              1.5242179 1.530450
+2    CHOR1    m 11.2770  13.0491 12.16923 12.16361              0.5355245 0.563850
+3    CHOR2    k  9.9882  14.3379 12.00195 11.93483              1.2449570 1.812375
+4    CHOR2    m  9.8271  22.2318 13.37130 13.61047              2.8951112 1.772100
+5 KONTROLA    k  9.5049  13.2102 11.35755 11.21415              1.2002035 1.973475
+6 KONTROLA    m  9.6660  12.7269 11.59920 11.40881              0.9360955 1.127700
+
+
+ HCT 
+     grupa plec minimun maksimum mediana   srednia odchylenie_standardowe    IQR
+1    CHOR1    k  0.2800    0.405  0.3830 0.3684286             0.03839815 0.0415
+2    CHOR1    m  0.3340    0.384  0.3560 0.3573636             0.01691906 0.0225
+3    CHOR2    k  0.0423    0.390  0.3315 0.3136917             0.09097440 0.0540
+4    CHOR2    m  0.2980    0.412  0.3890 0.3757692             0.03284091 0.0310
+5 KONTROLA    k  0.2790    0.389  0.3420 0.3391429             0.03328168 0.0415
+6 KONTROLA    m  0.2820    0.383  0.3380 0.3355455             0.02737650 0.0225
+
+
+ MCHC 
+     grupa plec minimun maksimum  mediana  srednia odchylenie_standardowe      IQR
+1    CHOR1    k 32.5556  36.8742 35.13015 35.16574              1.0792638 1.204225
+2    CHOR1    m 34.3827  36.3759 35.04710 35.08183              0.5739689 0.664400
+3    CHOR2    k 32.8878  38.8674 35.13015 35.62845              1.7542665 2.034725
+4    CHOR2    m 34.0505  36.7081 35.54540 35.48152              0.7064572 0.996600
+5 KONTROLA    k 32.0573  35.0471 34.21660 33.88440              1.0259798 1.370325
+6 KONTROLA    m 33.2200  36.0437 35.37930 35.06220              0.8865899 1.162700
+
+
+ MON 
+     grupa plec minimun maksimum  mediana   srednia odchylenie_standardowe    IQR
+1    CHOR1    k    0.48     1.19 0.730000 0.7664286              0.2121178 0.3050
+2    CHOR1    m    0.56     1.52 0.857027 0.9742752              0.3476438 0.4950
+3    CHOR2    k    0.29     7.00 0.655000 1.2725000              1.8406230 0.5575
+4    CHOR2    m    0.14     0.99 0.700000 0.6576923              0.2584619 0.2300
+5 KONTROLA    k    0.48     1.25 0.715000 0.7221429              0.1884830 0.1450
+6 KONTROLA    m    0.35     1.10 0.810000 0.8090909              0.1831641 0.1200
+
+
+ LEU 
+     grupa plec minimun maksimum mediana  srednia odchylenie_standardowe    IQR
+1    CHOR1    k    9.23    15.84  11.760 11.98571               2.163198 3.2975
+2    CHOR1    m    6.79    16.81  10.550 12.06818               3.148599 4.3600
+3    CHOR2    k    8.86    16.08  11.200 11.69583               2.559696 3.8325
+4    CHOR2    m    7.95    16.59  12.470 12.35308               2.125439 2.0500
+5 KONTROLA    k    4.83    14.51  10.505 10.78143               2.694989 3.9775
+6 KONTROLA    m    7.74    17.46  11.400 12.09727               3.503912 5.5950
+
