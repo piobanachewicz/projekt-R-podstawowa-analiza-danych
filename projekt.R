@@ -13,6 +13,9 @@ library(Hmisc)
 library(dplyr)
 library(stats)
 library(purrr)
+library(ggpubr)
+
+
 
 dataRaw <- read.csv2("dane.csv")
 cn <- names(dataRaw)
@@ -30,11 +33,11 @@ for (i in 1:length(dataRaw)){
   }
 }
 
-#usuniecie brakow i wypisanie wartosci odstajacych
+#usuniecie brakow
 
 dataModified <- dataRaw
 
-sink("output/zmiany.txt")
+sink("output/Zmiany.txt")
 for(i in 1:length(dataRaw)){
   if(any(is.na(dataRaw[, i]))){
     cat("W kolumnie ", i, "wystepuja wartosci puste w wierszach ")
@@ -45,22 +48,24 @@ for(i in 1:length(dataRaw)){
   #}
   dataModified[, i] <- impute(dataRaw[, i], mean)
 }
+sink()
 
-
+#wartosci odstajace
+sink("output/Wartosci odstajce.txt")
 for(i in 1:length(dataModified)){
   if(is.numeric(dataModified[, i])){
-    cat("\nWartosci odstajace w kolumnie ", cn[i], "\n")
+    cat("Wartosci odstajace w kolumnie ", cn[i], "\n")
     cat(boxplot.stats(dataModified[, i])$out)
     if(!length(boxplot.stats(dataModified[, i])$out)){
       cat("Brak wartosci odstajaych\n")
     }
+    cat("\n\n")
   }
 }
-
 sink()
 
 pdf("output/Wartosci odstajace.pdf")
-for(i in 1:length(dataModified)){
+  for(i in 1:length(dataModified)){
   if(is.numeric(dataModified[, i])){
     boxplot(dataModified[, i], main = c("wartosci odstajace w ", cn[i]))
   }
@@ -104,8 +109,10 @@ for(i in 1:length(dataModified)){
                                   maksimum = max,
                                   mediana = median,
                                   srednia = mean,
-                                  odchylenie_standardowe = sd,
-                                  IQR = IQR))
+                                  SD = sd,
+                                  IQR = IQR,
+                                  wariancja = var
+                                  ))
   
   #write.csv2(summary, file="tmp_csv.csv")
   #summary_csv <- read.csv2("tmp_csv.csv")
@@ -134,8 +141,10 @@ for(i in 1:length(dataModified)){
                                   maksimum = max,
                                   mediana = median,
                                   srednia = mean,
-                                  odchylenie_standardowe = sd,
-                                  IQR = IQR))
+                                  SD = sd,
+                                  IQR = IQR,
+                                  wariancja = var
+                                  ))
     
     #write.csv2(summary, file="tmp_csv.csv")
     #summary_csv <- read.csv2("tmp_csv.csv")
@@ -144,3 +153,52 @@ for(i in 1:length(dataModified)){
   cat("\n")
 }
 sink()
+
+
+#ocena zgodnosci danych z rozkdlaem normalnym
+sink("output/ocena zgodnosci.txt")
+for(i in 1:length(dataModified)){
+  if(!is.numeric(dataModified[, i])){
+    next
+  }
+  tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
+  
+  shapiro <- group_by(tmp, grupa) %>%
+    summarise(
+      statistic = shapiro.test(testowana)$statistic,
+      p.value = shapiro.test(testowana)$p.value,
+    )
+  
+  cat("\n", cn[i], "\n")
+  print(as.data.frame(shapiro))
+  cat("\n")
+  
+  for(j in 1:length(shapiro$p.value)){
+    if(shapiro$p.value[j] > 0.05){
+      cat("Dla grupy", groupsNames[j], "rozkład danych nie różni się znacząco od rozładu normalnego.\n")
+    } else {
+      cat("Dla grupy", groupsNames[j], "rozkład danych różni się znacząco od rozładu normalnego.\n")
+    }
+  }
+}
+cat("\n\nWykresy gestosci zosatna zapisne w folderze Wykresy gestosci.")
+sink()
+rm(tmp)
+
+#wykresy gestosci
+dir.create("output/Wykresy gestosci")
+for(i in 1:length(dataModified)){
+  if(is.numeric(dataModified[, i])){
+    dens <- ggdensity(dataModified,
+              x=cn[i],
+              color=cn[grID],
+              fill=cn[grID],
+              palette=c("#99cc00","#660099","#0047b3"),
+              ylab="gestosc",
+              xlab=cn[i]
+    )
+    path <- paste("output/Wykresy gestosci/", cn[i], ".jpg", sep ="")
+    ggexport(dens, filename = path)
+  }
+}
+rm(path)
