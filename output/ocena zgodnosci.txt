@@ -1,0 +1,93 @@
+
+ wiek 
+     grupa statistic   p.value
+1    CHOR1 0.9691404 0.6233499
+2    CHOR2 0.9569757 0.3575393
+3 KONTROLA 0.9551495 0.3263464
+
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ hsCRP 
+     grupa statistic      p.value
+1    CHOR1 0.5418468 9.933661e-08
+2    CHOR2 0.8731146 4.998515e-03
+3 KONTROLA 0.8813002 7.351605e-03
+
+Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ ERY 
+     grupa statistic      p.value
+1    CHOR1 0.2494035 2.653537e-10
+2    CHOR2 0.9815472 9.139531e-01
+3 KONTROLA 0.9692766 6.267790e-01
+
+Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ PLT 
+     grupa statistic     p.value
+1    CHOR1 0.9662912 0.553205577
+2    CHOR2 0.8636689 0.003237412
+3 KONTROLA 0.8675775 0.003869518
+
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ HGB 
+     grupa statistic      p.value
+1    CHOR1 0.9669493 5.690949e-01
+2    CHOR2 0.7513306 3.885087e-05
+3 KONTROLA 0.9565559 3.501576e-01
+
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ HCT 
+     grupa statistic      p.value
+1    CHOR1 0.9468476 2.126689e-01
+2    CHOR2 0.6735847 3.279665e-06
+3 KONTROLA 0.9685442 6.084101e-01
+
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ MCHC 
+     grupa statistic   p.value
+1    CHOR1 0.9480604 0.2266247
+2    CHOR2 0.9523641 0.2832569
+3 KONTROLA 0.9517281 0.2741520
+
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ MON 
+     grupa statistic      p.value
+1    CHOR1 0.9103592 3.104793e-02
+2    CHOR2 0.4098986 5.390727e-09
+3 KONTROLA 0.9590782 3.964211e-01
+
+Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+
+ LEU 
+     grupa statistic   p.value
+1    CHOR1 0.9554325 0.3310257
+2    CHOR2 0.9688186 0.6152727
+3 KONTROLA 0.9796032 0.8771294
+
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+
+
+Wykresy gestosci zosatna zapisne w folderze Wykresy gestosci.
