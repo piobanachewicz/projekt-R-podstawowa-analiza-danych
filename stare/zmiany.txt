@@ -1,0 +1,25 @@
+W kolumnie  7 wystepuja wartosci puste w wierszach 13 68.
+Uzupelniono srednia wynoszaca  12.16923 
+
+W kolumnie  10 wystepuja wartosci puste w wierszach 5.
+Uzupelniono srednia wynoszaca  0.857027 
+
+
+Wartosci odstajace w kolumnie  wiek 
+48
+Wartosci odstajace w kolumnie  hsCRP 
+20.1548 16.4069 42.6499 19.2124
+Wartosci odstajace w kolumnie  ERY 
+33
+Wartosci odstajace w kolumnie  PLT 
+456 434
+Wartosci odstajace w kolumnie  HGB 
+22.2318
+Wartosci odstajace w kolumnie  HCT 
+0.0423
+Wartosci odstajace w kolumnie  MCHC 
+38.8674 38.203 32.0573 32.2234
+Wartosci odstajace w kolumnie  MON 
+1.5 1.52 0.14 1.61 7
+Wartosci odstajace w kolumnie  LEU 
+Brak wartosci odstajaych
