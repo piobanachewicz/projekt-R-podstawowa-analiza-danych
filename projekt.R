@@ -15,6 +15,8 @@ library(stats)
 library(purrr)
 library(ggpubr)
 library(car)
+library(dunn.test)
+library(FSA)
 
 
 dataRaw <- read.csv2("dane.csv")
@@ -43,10 +45,10 @@ for(i in 1:length(dataRaw)){
     cat("W kolumnie ", i, "wystepuja wartosci puste w wierszach ")
     cat(which(is.na(dataRaw[, i])))
     cat(".\nUzupelniono srednia wynoszaca ", mean(dataRaw[, i], na.rm = TRUE), "\n\n")
-  } #else {
-    #cat("W kolumnie ", i, "nie wystepuja zadne wartosci puste \n")
-  #}
-  dataModified[, i] <- impute(dataRaw[, i], mean)
+    dataModified[, i] <- as.numeric(impute(dataRaw[, i], mean))
+  } else {
+    cat("W kolumnie ", i, "nie wystepuja zadne wartosci puste \n")
+  }
 }
 sink()
 
@@ -157,6 +159,7 @@ sink()
 
 #ocena zgodnosci danych z rozkdlaem normalnym
 rozklad <- data.frame()
+rozklad_iloczyn <- c()
 sink("output/ocena zgodnosci.txt")
 for(i in 1:length(dataModified)){
   if(!is.numeric(dataModified[, i])){
@@ -183,11 +186,21 @@ for(i in 1:length(dataModified)){
       cat("Dla grupy", groupsNames[j], "rozkład danych różni się znacząco od rozładu normalneg. P-value =", shapiro$p.value[j],"\n")
       rozklad[j, i] <- 0
     }
+    
+    if(any(is.na(rozklad[, i]))){
+      next
+    }
+    if(sum(rozklad[, i]) == nrow(rozklad)){
+      rozklad_iloczyn[i] <- 1
+    } else {
+      rozklad_iloczyn[i] <- 0
+    }
   }
 }
 cat("\n\nWykresy gestosci zosatna zapisne w folderze Wykresy gestosci.")
 sink()
 rm(tmp)
+
 
 #wykresy gestosci
 dir.create("output/Wykresy gestosci")
@@ -231,34 +244,41 @@ rm(tmp)
 
 #testy statystyczne
 if(length(groupsNames) > 2){
-  for(i in 1:length(rozklad)){
-    print(i)
-    for(j in 1:nrow(rozklad)){
-      print(j)
-      if(is.na(rozklad[j,i]) | is.na(homogenicznosc[i])){
-        next
-      }
-      if(rozklad[j,i] == 1 & homogenicznosc[i] == 1){
-        print("test ANOVA (post hoc Tukeya)")
+  for(i in 1:length(rozklad_iloczyn)){
+    if(is.na(rozklad_iloczyn[i]) | is.na(homogenicznosc[i])){
+      next
+    }
+    if(rozklad_iloczyn[i] == 1 & homogenicznosc[i] == 1){
+      #test ANOVA (post hoc Tukeya)
+      
+    } else {
+      #test Kruskala-Wallisa (post hoc Dunna)
+      tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
+      tmp_p <- kruskal.test(testowana ~ grupa, data = tmp)$p.value
+                  
+      if(tmp_p < 0.05){
+        cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\nTest Dunna:\n\n")
+        print(dunnTest(tmp$testowana, tmp$grupa))
+        cat("\n")
       } else {
-        print("test Kruskala-Wallisa (post hoc Dunna)")
+        cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
       }
+      rm(tmp)
+      rm(tmp_p)
     }
   }
 }else{
-  for(i in 1:length(rozklad)){
-    for(j in 1:nrow(rozklad)){
-      if(is.na(rozklad[i,j])){
-        next
-      }
-      if(rozklad[j,i] == 0){
-        print("test Wilcoxona (Manna-Whitneya) ")
-      } else if(rozklad[j,i] == 1){
-        if(homogenicznosc[i] == 0){
-          print("test Welcha")
-        } else if(homogenicznosc[i] == 1){
-          print("test t-Studenta")
-        }
+  for(i in 1:length(rozklad_iloczyn)){
+    if(is.na(rozklad_iloczyn[i]) | is.na(homogenicznosc[i])){
+      next
+    }
+    if(rozklad[j,i] == 0){
+      #test Wilcoxona (Manna-Whitneya)
+    } else if(rozklad[j,i] == 1){
+      if(homogenicznosc[i] == 0){
+        #test Welcha
+      } else if(homogenicznosc[i] == 1){
+        #test t-Studenta
       }
     }
   }
