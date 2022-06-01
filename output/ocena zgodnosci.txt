@@ -5,9 +5,9 @@
 2    CHOR2 0.9569757 0.3575393
 3 KONTROLA 0.9551495 0.3263464
 
-Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.6233499 
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.3575393 
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.3263464 
 
  hsCRP 
      grupa statistic      p.value
@@ -15,9 +15,9 @@ Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.8731146 4.998515e-03
 3 KONTROLA 0.8813002 7.351605e-03
 
-Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 9.933661e-08 
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 0.004998515 
+Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 0.007351605 
 
  ERY 
      grupa statistic      p.value
@@ -25,9 +25,9 @@ Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.9815472 9.139531e-01
 3 KONTROLA 0.9692766 6.267790e-01
 
-Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 2.653537e-10 
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.9139531 
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.626779 
 
  PLT 
      grupa statistic     p.value
@@ -35,9 +35,9 @@ Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.8636689 0.003237412
 3 KONTROLA 0.8675775 0.003869518
 
-Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.5532056 
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 0.003237412 
+Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 0.003869518 
 
  HGB 
      grupa statistic      p.value
@@ -45,9 +45,9 @@ Dla grupy KONTROLA rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.7513306 3.885087e-05
 3 KONTROLA 0.9565559 3.501576e-01
 
-Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.5690949 
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 3.885087e-05 
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.3501576 
 
  HCT 
      grupa statistic      p.value
@@ -55,9 +55,9 @@ Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.6735847 3.279665e-06
 3 KONTROLA 0.9685442 6.084101e-01
 
-Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.2126689 
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 3.279665e-06 
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.6084101 
 
  MCHC 
      grupa statistic   p.value
@@ -65,9 +65,9 @@ Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.9523641 0.2832569
 3 KONTROLA 0.9517281 0.2741520
 
-Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.2266247 
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.2832569 
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.274152 
 
  MON 
      grupa statistic      p.value
@@ -75,9 +75,9 @@ Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.4098986 5.390727e-09
 3 KONTROLA 0.9590782 3.964211e-01
 
-Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 0.03104793 
+Dla grupy CHOR2 rozk³ad danych ró¿ni siê znacz¹co od roz³adu normalneg. P-value = 5.390727e-09 
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.3964211 
 
  LEU 
      grupa statistic   p.value
@@ -85,9 +85,9 @@ Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
 2    CHOR2 0.9688186 0.6152727
 3 KONTROLA 0.9796032 0.8771294
 
-Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
-Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê znacz¹co od roz³adu normalnego.
+Dla grupy CHOR1 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.3310257 
+Dla grupy CHOR2 rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.6152727 
+Dla grupy KONTROLA rozk³ad danych nie ró¿ni siê od roz³adu normalnego. P-value = 0.8771294 
 
 
 Wykresy gestosci zosatna zapisne w folderze Wykresy gestosci.

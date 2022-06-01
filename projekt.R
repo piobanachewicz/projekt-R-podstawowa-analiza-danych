@@ -14,7 +14,7 @@ library(dplyr)
 library(stats)
 library(purrr)
 library(ggpubr)
-
+library(car)
 
 
 dataRaw <- read.csv2("dane.csv")
@@ -156,9 +156,11 @@ sink()
 
 
 #ocena zgodnosci danych z rozkdlaem normalnym
+rozklad <- data.frame()
 sink("output/ocena zgodnosci.txt")
 for(i in 1:length(dataModified)){
   if(!is.numeric(dataModified[, i])){
+    rozklad[1:length(groupsNames), i] <- NA
     next
   }
   tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
@@ -175,9 +177,11 @@ for(i in 1:length(dataModified)){
   
   for(j in 1:length(shapiro$p.value)){
     if(shapiro$p.value[j] > 0.05){
-      cat("Dla grupy", groupsNames[j], "rozkład danych nie różni się znacząco od rozładu normalnego.\n")
+      cat("Dla grupy", groupsNames[j], "rozkład danych nie różni się od rozładu normalnego. P-value =", shapiro$p.value[j],"\n")
+      rozklad[j, i] <- 1
     } else {
-      cat("Dla grupy", groupsNames[j], "rozkład danych różni się znacząco od rozładu normalnego.\n")
+      cat("Dla grupy", groupsNames[j], "rozkład danych różni się znacząco od rozładu normalneg. P-value =", shapiro$p.value[j],"\n")
+      rozklad[j, i] <- 0
     }
   }
 }
@@ -202,3 +206,60 @@ for(i in 1:length(dataModified)){
   }
 }
 rm(path)
+
+#Ocena homogenicznosci wariancji
+homogenicznosc <- c()
+sink("output/homogenicznosc danych.txt")
+for(i in 1:length(dataModified)){
+  if(!is.numeric(dataModified[, i])){
+    homogenicznosc[i] <- NA
+    next
+  }  
+  
+  tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
+  print(leveneTest(testowana ~ grupa, data=tmp))
+    if(leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] > 0.05){
+      cat("Dla danej", cn[i], "możemy zalożyć homogeniczność danych (p-value = )", leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] ,".\n")
+      homogenicznosc[i] <- 1
+    } else {
+      cat("Dla danej", cn[i], "nie możemy zalożyć homogeniczności danych (p-value = )", leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] ,".\n")
+      homogenicznosc[i] <- 0
+    }
+}
+sink()
+rm(tmp)
+
+#testy statystyczne
+if(length(groupsNames) > 2){
+  for(i in 1:length(rozklad)){
+    print(i)
+    for(j in 1:nrow(rozklad)){
+      print(j)
+      if(is.na(rozklad[j,i]) | is.na(homogenicznosc[i])){
+        next
+      }
+      if(rozklad[j,i] == 1 & homogenicznosc[i] == 1){
+        print("test ANOVA (post hoc Tukeya)")
+      } else {
+        print("test Kruskala-Wallisa (post hoc Dunna)")
+      }
+    }
+  }
+}else{
+  for(i in 1:length(rozklad)){
+    for(j in 1:nrow(rozklad)){
+      if(is.na(rozklad[i,j])){
+        next
+      }
+      if(rozklad[j,i] == 0){
+        print("test Wilcoxona (Manna-Whitneya) ")
+      } else if(rozklad[j,i] == 1){
+        if(homogenicznosc[i] == 0){
+          print("test Welcha")
+        } else if(homogenicznosc[i] == 1){
+          print("test t-Studenta")
+        }
+      }
+    }
+  }
+}
