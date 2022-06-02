@@ -25,7 +25,7 @@ cn <- names(dataRaw)
 groupsNames <- c()
 
 for (i in 1:length(dataRaw)){
-  if(cn[i] == "grupa" | cn[i] == "group"){
+  if(cn[i] == "grupa" | cn[i] == "group" | cn[i] == "groups" | cn[i] == "grupy"){
     grID <- i
     for(j in 1:nrow(dataRaw)){
       if(!(dataRaw[j, i] %in% groupsNames)){
@@ -347,3 +347,65 @@ for(i in 1:length(rozklad_iloczyn)){
 }
 
 #Korelacje
+okresl_korelacje <- function(cor){
+  if(cor > 1 | cor < -1){
+    paste("nie można określić korelacji.")
+  } else if(-1 < cor | cor < -0.7){ 
+    paste("jest bardzo silna korelacja ujemna.")
+  } else if(-0.7 < cor | cor < -0.5){ 
+    paste("jest silna korelacja ujemna.")
+  } else if(-0.5 < cor | cor < -0.3){ 
+    paste("jest korelacja ujemna o średnim natężeniu.")
+  } else if(-0.3 < cor | cor < -0.2){ 
+    paste("jest słaba korelacja ujemna.")
+  } else if(-0.2 < cor | cor < 0.2){ 
+    paste("jest brak korelacji")
+  } else if(0.2 < cor | cor < 0.3){ 
+    paste("jest słaba korelacja dodatnia.")
+  } else if(0.3 < cor | cor < 0.5){ 
+    paste("jest korelacja dodatnia o średnim natężeniu.")
+  } else if(0.5 < cor | cor < 0.7){ 
+    paste("jest silna korelacja dodatnia.")
+  } else if(0.7 < cor | cor < 1){ 
+    paste("jest bardzo silna korelacja dodatnia.")
+  }
+}
+
+sink("output/korelacje.txt")
+for(i in 1:length(groupsNames)){
+  cat("_________Korelacje w grupie", groupsNames[i],"_________\n")
+  
+  dir.create(paste("output/korelacje_",groupsNames[i], sep = ""))
+  tested <- dataModified %>% filter(dataModified[, grID] == groupsNames[i])
+  #pdf(file = paste("output/korelacja_",groupsNames[i],".pdf", sep = ""))
+  for(j in 1:length(dataModified)){
+    if (j == grID){
+      next
+    }
+    cat("\n")
+    for(k in 1:length(dataModified)){
+      if (k == grID | j == k | !any(is.numeric(dataModified[, j])) | !any(is.numeric(dataModified[, k]))){
+        next
+      }
+      
+      kor <- cor.test(tested[, j], tested[, k], method="pearson")
+      
+      if(kor$p.value < 0.05){
+        cat("Dla danych",cn[j], "i", cn[k], okresl_korelacje(kor$estimate), "\n")
+        kor_plot <- ggscatter(tested,
+                              x=cn[j], y=cn[k],
+                              add="reg.line",conf.int=TRUE,
+                              cor.coef=TRUE,cor.method="pearson",
+                              color="grupa",fill="grupa",
+        )
+        ggexport(kor_plot, filename = paste("output/","korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg", sep = ""))
+        #dev.off()
+        cat("Wykresy zostały narysowane w output/","korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg\n\n", sep = "")
+      } else {
+        cat("Dla danych",cn[j], "i", cn[k], "p-value =", kor$p.value, "co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).\n")
+      }
+    }
+  }
+  cat("\n")
+}
+sink()
