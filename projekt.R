@@ -17,6 +17,7 @@ library(ggpubr)
 library(car)
 library(dunn.test)
 library(FSA)
+library(RColorBrewer)
 
 
 dataRaw <- read.csv2("dane.csv")
@@ -204,20 +205,27 @@ rm(tmp)
 
 #wykresy gestosci
 dir.create("output/Wykresy gestosci")
+#pdf(file = "output/Wykresy gestosci/test.pdf")
+
 for(i in 1:length(dataModified)){
+  #path <- paste("output/Wykresy gestosci/", cn[i], ".jpg", sep ="")
+  
   if(is.numeric(dataModified[, i])){
     dens <- ggdensity(dataModified,
               x=cn[i],
               color=cn[grID],
               fill=cn[grID],
-              palette=c("#99cc00","#660099","#0047b3"),
-              ylab="gestosc",
-              xlab=cn[i]
+              palette = "ucscgb",
+              linetype = "blank",
+              ylab = "gestość"
     )
+    dens
     path <- paste("output/Wykresy gestosci/", cn[i], ".jpg", sep ="")
     ggexport(dens, filename = path)
   }
 }
+dev.off()
+
 rm(path)
 
 #Ocena homogenicznosci wariancji
@@ -243,43 +251,99 @@ sink()
 rm(tmp)
 
 #testy statystyczne
-if(length(groupsNames) > 2){
-  for(i in 1:length(rozklad_iloczyn)){
-    if(is.na(rozklad_iloczyn[i]) | is.na(homogenicznosc[i])){
-      next
-    }
-    if(rozklad_iloczyn[i] == 1 & homogenicznosc[i] == 1){
-      #test ANOVA (post hoc Tukeya)
-      
+dir.create("output/Wykresy zaleznosci")
+for(i in 1:length(rozklad_iloczyn)){
+  if(i == grID){
+    next
+  }
+  tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
+  
+  if(is.na(rozklad_iloczyn[i]) | is.na(homogenicznosc[i])){
+    
+    tmp_p <- chisq.test(tmp$testowana, tmp$grupa)$p.value
+    
+    path <- paste("output/Wykresy zaleznosci/", cn[i], ".jpg", sep ="")
+    jpeg(file = path)
+    
+    barplot(table(tmp$testowana, tmp$grupa),
+            ylim = c(0,30),
+            beside = TRUE,
+            col = terrain.colors(length(unique(tmp$testowana))),
+            xlab = cn[grID],
+            ylab = cn[i],
+            legend = unique(tmp$testowana)
+    )
+    dev.off()
+    
+    if(tmp_p < 0.05){
+      cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
     } else {
-      #test Kruskala-Wallisa (post hoc Dunna)
-      tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
-      tmp_p <- kruskal.test(testowana ~ grupa, data = tmp)$p.value
-                  
-      if(tmp_p < 0.05){
-        cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\nTest Dunna:\n\n")
-        print(dunnTest(tmp$testowana, tmp$grupa))
-        cat("\n")
+      cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+    }
+    cat("\nWykres zapisano do pliku", path)
+    
+    rm(path)
+    next
+  }
+  
+  if(length(groupsNames) > 2){
+        
+      if(rozklad_iloczyn[i] == 1 & homogenicznosc[i] == 1){
+        #test ANOVA (post hoc Tukeya)
+        tmp_p <- summary(aov(testowana ~ grupa, data = tmp))[[1]][["Pr(>F)"]][[1]]
+        if(tmp_p < 0.05){
+          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\nTest Tukeya:\n\n")
+          print(TukeyHSD(aov(testowana ~ grupa, data = tmp)))
+          cat("\n")
+        } else {
+          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
+        }
+        
       } else {
-        cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
+        #test Kruskala-Wallisa (post hoc Dunna)
+        tmp_p <- kruskal.test(testowana ~ grupa, data = tmp)$p.value
+                    
+        if(tmp_p < 0.05){
+          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\nTest Dunna:\n\n")
+          print(dunnTest(tmp$testowana, tmp$grupa))
+          cat("\n")
+        } else {
+          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
+        }
       }
-      rm(tmp)
-      rm(tmp_p)
-    }
-  }
-}else{
-  for(i in 1:length(rozklad_iloczyn)){
-    if(is.na(rozklad_iloczyn[i]) | is.na(homogenicznosc[i])){
-      next
-    }
-    if(rozklad[j,i] == 0){
-      #test Wilcoxona (Manna-Whitneya)
-    } else if(rozklad[j,i] == 1){
-      if(homogenicznosc[i] == 0){
-        #test Welcha
+  } else {
+      if(rozklad[j,i] == 0){
+        #test Wilcoxona (Manna-Whitneya)
+        tmp_p <- wilcox.test(testowana ~ grupa, data = tmp)$p.value
+        if(tmp_p < 0.05){
+          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
+        } else {
+          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+        }
+        
+      } else if(rozklad[j,i] == 1){
+        if(homogenicznosc[i] == 0){
+          #test Welcha
+          tmp_p <- t.test(testowana ~ grupa, data = tmp, var.equal = FALSE)
+          if(tmp_p < 0.05){
+            cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
+          } else {
+            cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+          }
+          
       } else if(homogenicznosc[i] == 1){
-        #test t-Studenta
+         #test t-Studenta
+        tmp_p <- t.test(testowana ~ grupa, data = tmp, var.equal = TRUE)
+        if(tmp_p < 0.05){
+          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
+        } else {
+          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+        }
       }
     }
   }
+  rm(tmp)
+  rm(tmp_p)
 }
+
+#Korelacje
