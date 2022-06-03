@@ -354,26 +354,26 @@ sink()
 
 #Korelacje
 okresl_korelacje <- function(cor){
-  if(cor > 1 | cor < -1){
+  if(cor > 1 && cor < -1){
     paste("nie można określić korelacji.")
-  } else if(-1 < cor | cor < -0.7){ 
-    paste("jest bardzo silna korelacja ujemna.")
-  } else if(-0.7 < cor | cor < -0.5){ 
-    paste("jest silna korelacja ujemna.")
-  } else if(-0.5 < cor | cor < -0.3){ 
-    paste("jest korelacja ujemna o średnim natężeniu.")
-  } else if(-0.3 < cor | cor < -0.2){ 
-    paste("jest słaba korelacja ujemna.")
-  } else if(-0.2 < cor | cor < 0.2){ 
-    paste("jest brak korelacji")
-  } else if(0.2 < cor | cor < 0.3){ 
-    paste("jest słaba korelacja dodatnia.")
-  } else if(0.3 < cor | cor < 0.5){ 
-    paste("jest korelacja dodatnia o średnim natężeniu.")
-  } else if(0.5 < cor | cor < 0.7){ 
-    paste("jest silna korelacja dodatnia.")
-  } else if(0.7 < cor | cor < 1){ 
-    paste("jest bardzo silna korelacja dodatnia.")
+  } else if(-1 < cor && cor < -0.7){ 
+    paste("korelacja jest bardzo silna ujemna.")
+  } else if(-0.7 < cor && cor < -0.5){ 
+    paste("korelacja jest silna ujemna.")
+  } else if(-0.5 < cor && cor < -0.3){ 
+    paste("korelacja jest ujemna o średnim natężeniu.")
+  } else if(-0.3 < cor && cor < -0.2){ 
+    paste("korelacja jest słaba ujemna.")
+  } else if(-0.2 < cor && cor < 0.2){ 
+    paste("brak korelacji")
+  } else if(0.2 < cor && cor < 0.3){ 
+    paste("korelacja jest słaba dodatnia.")
+  } else if(0.3 < cor && cor < 0.5){ 
+    paste("korelacja jest dodatnia o średnim natężeniu.")
+  } else if(0.5 < cor && cor < 0.7){ 
+    paste("korelacja jest silna dodatnia.")
+  } else if(0.7 < cor && cor < 1){ 
+    paste("korelacja jest bardzo silna dodatnia.")
   }
 }
 
@@ -403,7 +403,7 @@ for(i in 1:length(groupsNames)){
       kor <- cor.test(tested[, j], tested[, k], method="pearson")
       
       if(kor$p.value < 0.05){
-        cat("Dla danych",cn[j], "i", cn[k], okresl_korelacje(kor$estimate), "\n")
+        cat("Dla danych",cn[j], "i", cn[k], okresl_korelacje(kor$estimate),"\n")
         
         if(kor$estimate < -0.2){
           kor_table[j,k] <- "-"
