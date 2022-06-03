@@ -7,8 +7,6 @@ dataRaw <- read.csv2("dane.csv")
 #  stop("Nie podano argumentow.")
 #}
 #dataRaw <- read.csv2(file=args[1], header=TRUE)
-dir.create("output")
-dir.create("output/wykresy")
 
 library(Hmisc)
 library(dplyr)
@@ -20,6 +18,8 @@ library(dunn.test)
 library(FSA)
 library(RColorBrewer)
 
+dir.create("output")
+dir.create("output/wykresy")
 
 cn <- names(dataRaw)
 groupsNames <- c()
@@ -27,20 +27,17 @@ groupsNames <- c()
 for (i in 1:length(dataRaw)){
   if(cn[i] == "grupa" | cn[i] == "group" | cn[i] == "groups" | cn[i] == "grupy"){
     grID <- i
-    for(j in 1:nrow(dataRaw)){
-      if(!(dataRaw[j, i] %in% groupsNames)){
-        groupsNames <- append(groupsNames, c(dataRaw[j, i]))
-      }
-    }
     break
   }
 }
+
+groupsNames <- unique(dataRaw[, grID])
 
 #usuniecie brakow
 
 dataModified <- dataRaw
 
-sink("output/Zmiany.txt")
+sink("Zmiany.txt")
 for(i in 1:length(dataRaw)){
   if(any(is.na(dataRaw[, i]))){
     cat("W danych", cn[i], "wystepuja wartosci puste w wierszach ")
@@ -51,6 +48,25 @@ for(i in 1:length(dataRaw)){
     cat("W danych", cn[i], "nie wystepuja zadne wartosci puste \n")
   }
 }
+sink()
+
+#charakterystyka danych
+sink("Opis danych.txt")
+ch <- data.frame(row.names = c("rodzaj", "typ", "maksymalna wartosc", "minimalna wartosc"))
+for(i in 1:length(dataModified)){
+  ch[1, i] = class(dataModified[1, i])
+  if(is.numeric(dataModified[1, i])){
+    ch[2, i] = "Dane ilosciowe"
+    ch[3, i] = max(dataModified[, i])
+    ch[4, i] = min(dataModified[, i])
+  } else {
+    ch[2, i] = "Dane jakosciowe"
+    ch[3, i] = "Nie dotyczy"
+    ch[4, i] = "Nie dotyczy"
+  }
+}
+colnames(ch) = cn
+print(ch)
 sink()
 
 #wartosci odstajace
@@ -70,29 +86,17 @@ sink()
 pdf("output/wykresy/Wartosci odstajace.pdf")
   for(i in 1:length(dataModified)){
   if(is.numeric(dataModified[, i])){
-    boxplot(dataModified[, i], main = c("wartosci odstajace w ", cn[i]))
+    boxplot(dataModified[, i], 
+            main = c("wartosci odstajace w ", cn[i]),
+            ylab = cn[i],
+            col = "lightgreen",
+            medcol= "darkgreen",
+            outcol = "darkgreen",
+            outpch = 18)
   }
 }
 dev.off()
 
-#charakterystyka danych
-sink("output/Opis danych.txt")
-ch <- data.frame(row.names = c("rodzaj", "typ", "maksymalna wartosc", "minimalna wartosc"))
-for(i in 1:length(dataModified)){
-  ch[1, i] = class(dataModified[1, i])
-  if(is.numeric(dataModified[1, i])){
-    ch[2, i] = "Dane ilosciowe"
-    ch[3, i] = max(dataModified[, i])
-    ch[4, i] = min(dataModified[, i])
-  } else {
-    ch[2, i] = "Dane jakosciowe"
-    ch[3, i] = "Nie dotyczy"
-    ch[4, i] = "Nie dotyczy"
-  }
-}
-colnames(ch) = cn
-print(ch)
-sink()
 
 #podsumowanie danych
 sink("output/Podsumowanie.txt")
@@ -161,7 +165,7 @@ sink()
 #ocena zgodnosci danych z rozkdlaem normalnym
 rozklad <- data.frame()
 rozklad_iloczyn <- c()
-sink("output/ocena zgodnosci.txt")
+sink("output/ocena zgodnosci z rozkladem normalnym.txt")
 for(i in 1:length(dataModified)){
   if(!is.numeric(dataModified[, i])){
     rozklad[1:length(groupsNames), i] <- NA
@@ -230,7 +234,7 @@ rm(path)
 
 #Ocena homogenicznosci wariancji
 homogenicznosc <- c()
-sink("output/homogenicznosc danych.txt")
+sink("output/ocena homogenicznosci wariancji.txt")
 for(i in 1:length(dataModified)){
   if(!is.numeric(dataModified[, i])){
     homogenicznosc[i] <- NA
@@ -240,10 +244,10 @@ for(i in 1:length(dataModified)){
   tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
   #print(leveneTest(testowana ~ grupa, data=tmp))
     if(leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] > 0.05){
-      cat("Dla danej", cn[i], "możemy zalożyć homogeniczność danych (p-value = )", leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] ,".\n")
+      cat("Dla danej", cn[i], "możemy zalożyć homogeniczność danych (p-value = ", leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] ,").\n")
       homogenicznosc[i] <- 1
     } else {
-      cat("Dla danej", cn[i], "nie możemy zalożyć homogeniczności danych (p-value = )", leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] ,".\n")
+      cat("Dla danej", cn[i], "nie możemy zalożyć homogeniczności danych (p-value = ", leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] ,").\n")
       homogenicznosc[i] <- 0
     }
 }
@@ -271,15 +275,15 @@ for(i in 1:length(rozklad_iloczyn)){
             beside = TRUE,
             col = terrain.colors(length(unique(tmp$testowana))),
             xlab = cn[grID],
-            ylab = cn[i],
+            ylab = "wartos",
             legend = unique(tmp$testowana)
     )
     dev.off()
     
     if(tmp_p < 0.05){
-      cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
+      cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
     } else {
-      cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+      cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
     }
     #cat("\nWykres zapisano do pliku", path)
     
@@ -317,9 +321,9 @@ for(i in 1:length(rozklad_iloczyn)){
         #test Wilcoxona (Manna-Whitneya)
         tmp_p <- wilcox.test(testowana ~ grupa, data = tmp)$p.value
         if(tmp_p < 0.05){
-          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
+          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
         } else {
-          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
         }
         
       } else if(rozklad[j,i] == 1){
@@ -327,18 +331,18 @@ for(i in 1:length(rozklad_iloczyn)){
           #test Welcha
           tmp_p <- t.test(testowana ~ grupa, data = tmp, var.equal = FALSE)
           if(tmp_p < 0.05){
-            cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
+            cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
           } else {
-            cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+            cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
           }
           
       } else if(homogenicznosc[i] == 1){
          #test t-Studenta
         tmp_p <- t.test(testowana ~ grupa, data = tmp, var.equal = TRUE)
         if(tmp_p < 0.05){
-          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p)
+          cat("Dla danej", cn[i], "występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
         } else {
-          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
+          cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p,"\n")
         }
       }
     }

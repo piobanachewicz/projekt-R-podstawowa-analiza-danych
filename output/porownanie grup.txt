@@ -1,4 +1,5 @@
-Dla danej plec nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.8071177Dla danej wiek nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.2056278 
+Dla danej plec nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.8071177 
+Dla danej wiek nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.2056278 
 Dla danej hsCRP nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.8807212 
 Dla danej ERY nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.1543514 
 Dla danej PLT nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.3240307 
