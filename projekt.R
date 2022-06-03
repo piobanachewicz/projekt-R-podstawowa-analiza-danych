@@ -1,13 +1,14 @@
 #"D:\R-4.1.3\bin\R.exe" CMD BATCH --vanilla "--args dane.csv" projekt.R
+setwd("D:/Studia/IV Semestr/R/Projekt")
+dataRaw <- read.csv2("dane.csv")
 
 #args = commandArgs(trailingOnly=TRUE)
 #if (length(args)==0) {
 #  stop("Nie podano argumentow.")
 #}
 #dataRaw <- read.csv2(file=args[1], header=TRUE)
-setwd("D:/Studia/IV Semestr/R/Projekt")
 dir.create("output")
-dir.create("tmp")
+dir.create("output/wykresy")
 
 library(Hmisc)
 library(dplyr)
@@ -20,7 +21,6 @@ library(FSA)
 library(RColorBrewer)
 
 
-dataRaw <- read.csv2("dane.csv")
 cn <- names(dataRaw)
 groupsNames <- c()
 
@@ -67,7 +67,7 @@ for(i in 1:length(dataModified)){
 }
 sink()
 
-pdf("output/Wartosci odstajace.pdf")
+pdf("output/wykresy/Wartosci odstajace.pdf")
   for(i in 1:length(dataModified)){
   if(is.numeric(dataModified[, i])){
     boxplot(dataModified[, i], main = c("wartosci odstajace w ", cn[i]))
@@ -204,7 +204,7 @@ rm(tmp)
 
 
 #wykresy gestosci
-dir.create("output/Wykresy gestosci")
+dir.create("output/wykresy/Wykresy gestosci")
 #pdf(file = "output/Wykresy gestosci/test.pdf")
 
 for(i in 1:length(dataModified)){
@@ -220,11 +220,11 @@ for(i in 1:length(dataModified)){
               ylab = "gestość"
     )
     dens
-    path <- paste("output/Wykresy gestosci/", cn[i], ".jpg", sep ="")
+    path <- paste("output/wykresy/Wykresy gestosci/", cn[i], ".jpg", sep ="")
     ggexport(dens, filename = path)
   }
 }
-dev.off()
+#dev.off()
 
 rm(path)
 
@@ -238,7 +238,7 @@ for(i in 1:length(dataModified)){
   }  
   
   tmp <- data.frame("grupa" = dataModified[, grID], "testowana" = dataModified[, i])
-  print(leveneTest(testowana ~ grupa, data=tmp))
+  #print(leveneTest(testowana ~ grupa, data=tmp))
     if(leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] > 0.05){
       cat("Dla danej", cn[i], "możemy zalożyć homogeniczność danych (p-value = )", leveneTest(testowana ~ grupa, data=tmp)$"Pr(>F)"[1] ,".\n")
       homogenicznosc[i] <- 1
@@ -251,7 +251,8 @@ sink()
 rm(tmp)
 
 #testy statystyczne
-dir.create("output/Wykresy zaleznosci")
+dir.create("output/wykresy/Wykresy zaleznosci")
+sink("output/porownanie grup.txt")
 for(i in 1:length(rozklad_iloczyn)){
   if(i == grID){
     next
@@ -262,7 +263,7 @@ for(i in 1:length(rozklad_iloczyn)){
     
     tmp_p <- chisq.test(tmp$testowana, tmp$grupa)$p.value
     
-    path <- paste("output/Wykresy zaleznosci/", cn[i], ".jpg", sep ="")
+    path <- paste("output/wykresy/Wykresy zaleznosci/", cn[i], ".jpg", sep ="")
     jpeg(file = path)
     
     barplot(table(tmp$testowana, tmp$grupa),
@@ -345,6 +346,7 @@ for(i in 1:length(rozklad_iloczyn)){
   rm(tmp)
   rm(tmp_p)
 }
+sink()
 
 #Korelacje
 okresl_korelacje <- function(cor){
@@ -375,7 +377,7 @@ sink("output/korelacje.txt")
 for(i in 1:length(groupsNames)){
   cat("_________Korelacje w grupie", groupsNames[i],"_________\n")
   
-  dir.create(paste("output/korelacje_",groupsNames[i], sep = ""))
+  dir.create(paste("output/wykresy/korelacje_",groupsNames[i], sep = ""))
   tested <- dataModified %>% filter(dataModified[, grID] == groupsNames[i])
   #pdf(file = paste("output/korelacja_",groupsNames[i],".pdf", sep = ""))
   for(j in 1:length(dataModified)){
@@ -398,9 +400,9 @@ for(i in 1:length(groupsNames)){
                               cor.coef=TRUE,cor.method="pearson",
                               color="grupa",fill="grupa",
         )
-        ggexport(kor_plot, filename = paste("output/","korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg", sep = ""))
+        ggexport(kor_plot, filename = paste("output/wykresy/korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg", sep = ""))
         #dev.off()
-        cat("Wykresy zostały narysowane w output/","korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg\n\n", sep = "")
+        cat("Wykresy zostały narysowane w output/wykresy/korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg\n\n", sep = "")
       } else {
         cat("Dla danych",cn[j], "i", cn[k], "p-value =", kor$p.value, "co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).\n")
       }

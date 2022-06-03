@@ -1,0 +1,38 @@
+Dla danej plec nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.8071177
+Wykres zapisano do pliku output/Wykresy zaleznosci/plec.jpgDla danej wiek nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.2056278 
+Dla danej hsCRP nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.8807212 
+Dla danej ERY nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.1543514 
+Dla danej PLT nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.3240307 
+Dla danej HGB wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.001126999 
+Test Dunna:
+
+        Comparison         Z     P.unadj       P.adj
+1    CHOR1 - CHOR2 -0.207846 0.835349181 0.835349181
+2 CHOR1 - KONTROLA  3.081967 0.002056376 0.004112751
+3 CHOR2 - KONTROLA  3.289813 0.001002539 0.003007618
+
+Dla danej HCT wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.01896091 
+Test Dunna:
+
+        Comparison         Z     P.unadj      P.adj
+1    CHOR1 - CHOR2 0.7885475 0.430376497 0.43037650
+2 CHOR1 - KONTROLA 2.7355785 0.006227073 0.01868122
+3 CHOR2 - KONTROLA 1.9470310 0.051531020 0.10306204
+
+Dla danej MCHC wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.00185981 
+Test Tukeya:
+
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = testowana ~ grupa, data = tmp)
+
+$grupa
+                     diff        lwr         upr     p adj
+CHOR2-CHOR1     0.4232228 -0.3274109  1.17385653 0.3729404
+KONTROLA-CHOR1 -0.7261892 -1.4768229  0.02444453 0.0600433
+KONTROLA-CHOR2 -1.1494120 -1.9000457 -0.39877827 0.0013523
+
+
+Dla danej MON nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.2542135 
+Dla danej LEU nie wystêpuj¹ ró¿nice pomiêdzy grupami. P-value = 0.5965009 
