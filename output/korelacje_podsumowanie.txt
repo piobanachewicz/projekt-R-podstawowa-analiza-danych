@@ -1,0 +1,42 @@
+Korelacje w gupie CHOR1 :
+       X grupa plec wiek hsCRP ERY PLT HGB HCT MCHC MON LEU
+1  grupa     #    #    #     #   #   #   #   #    #   #   #
+2   plec     #    #    #     #   #   #   #   #    #   #   #
+3   wiek     #    #    #     0   0   0   0   0    0   0   0
+4  hsCRP     #    #    0     #   0   0   0   0    0   +   +
+5    ERY     #    #    0     0   #   +   -   -    0   0   0
+6    PLT     #    #    0     0   +   #   0   0    0   0   0
+7    HGB     #    #    0     0   -   0   #   +    +   0   0
+8    HCT     #    #    0     0   -   0   +   #    +   0   0
+9   MCHC     #    #    0     0   0   0   +   +    #   0   0
+10   MON     #    #    0     +   0   0   0   0    0   #   +
+11   LEU     #    #    0     +   0   0   0   0    0   +   #
+
+Korelacje w gupie CHOR2 :
+       X grupa plec wiek hsCRP ERY PLT HGB HCT MCHC MON LEU
+1  grupa     #    #    #     #   #   #   #   #    #   #   #
+2   plec     #    #    #     #   #   #   #   #    #   #   #
+3   wiek     #    #    #     0   0   0   +   0    0   0   0
+4  hsCRP     #    #    0     #   0   0   0   0    0   0   0
+5    ERY     #    #    0     0   #   0   +   0    0   0   0
+6    PLT     #    #    0     0   0   #   0   0    0   0   0
+7    HGB     #    #    +     0   +   0   #   0    0   0   0
+8    HCT     #    #    0     0   0   0   0   #    0   0   0
+9   MCHC     #    #    0     0   0   0   0   0    #   0   0
+10   MON     #    #    0     0   0   0   0   0    0   #   0
+11   LEU     #    #    0     0   0   0   0   0    0   0   #
+
+Korelacje w gupie KONTROLA :
+       X grupa plec wiek hsCRP ERY PLT HGB HCT MCHC MON LEU
+1  grupa     #    #    #     #   #   #   #   #    #   #   #
+2   plec     #    #    #     #   #   #   #   #    #   #   #
+3   wiek     #    #    #     0   +   0   0   0    0   0   -
+4  hsCRP     #    #    0     #   0   0   0   0    0   0   0
+5    ERY     #    #    +     0   #   +   +   +    -   0   0
+6    PLT     #    #    0     0   +   #   0   0    -   +   0
+7    HGB     #    #    0     0   +   0   #   +    0   0   0
+8    HCT     #    #    0     0   +   0   +   #    0   0   0
+9   MCHC     #    #    0     0   -   -   0   0    #   0   0
+10   MON     #    #    0     0   0   +   0   0    0   #   +
+11   LEU     #    #    -     0   0   0   0   0    0   +   #
+

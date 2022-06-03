@@ -1,15 +1,11 @@
-W kolumnie  1 nie wystepuja zadne wartosci puste 
-W kolumnie  2 nie wystepuja zadne wartosci puste 
-W kolumnie  3 nie wystepuja zadne wartosci puste 
-W kolumnie  4 nie wystepuja zadne wartosci puste 
-W kolumnie  5 nie wystepuja zadne wartosci puste 
-W kolumnie  6 nie wystepuja zadne wartosci puste 
-W kolumnie  7 wystepuja wartosci puste w wierszach 13 68.
-Uzupelniono srednia wynoszaca  12.16923 
-
-W kolumnie  8 nie wystepuja zadne wartosci puste 
-W kolumnie  9 nie wystepuja zadne wartosci puste 
-W kolumnie  10 wystepuja wartosci puste w wierszach 5.
-Uzupelniono srednia wynoszaca  0.857027 
-
-W kolumnie  11 nie wystepuja zadne wartosci puste 
+W danych grupa nie wystepuja zadne wartosci puste 
+W danych plec nie wystepuja zadne wartosci puste 
+W danych wiek nie wystepuja zadne wartosci puste 
+W danych hsCRP nie wystepuja zadne wartosci puste 
+W danych ERY nie wystepuja zadne wartosci puste 
+W danych PLT nie wystepuja zadne wartosci puste 
+W danych HGB wystepuja wartosci puste w wierszach 13 68. Uzupelniono srednia wynoszaca  12.16923 
+W danych HCT nie wystepuja zadne wartosci puste 
+W danych MCHC nie wystepuja zadne wartosci puste 
+W danych MON wystepuja wartosci puste w wierszach 5. Uzupelniono srednia wynoszaca  0.857027 
+W danych LEU nie wystepuja zadne wartosci puste 

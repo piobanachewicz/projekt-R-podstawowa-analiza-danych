@@ -43,12 +43,12 @@ dataModified <- dataRaw
 sink("output/Zmiany.txt")
 for(i in 1:length(dataRaw)){
   if(any(is.na(dataRaw[, i]))){
-    cat("W kolumnie ", i, "wystepuja wartosci puste w wierszach ")
+    cat("W danych", cn[i], "wystepuja wartosci puste w wierszach ")
     cat(which(is.na(dataRaw[, i])))
-    cat(".\nUzupelniono srednia wynoszaca ", mean(dataRaw[, i], na.rm = TRUE), "\n\n")
+    cat(". Uzupelniono srednia wynoszaca ", mean(dataRaw[, i], na.rm = TRUE), "\n")
     dataModified[, i] <- as.numeric(impute(dataRaw[, i], mean))
   } else {
-    cat("W kolumnie ", i, "nie wystepuja zadne wartosci puste \n")
+    cat("W danych", cn[i], "nie wystepuja zadne wartosci puste \n")
   }
 }
 sink()
@@ -198,7 +198,7 @@ for(i in 1:length(dataModified)){
     }
   }
 }
-cat("\n\nWykresy gestosci zosatna zapisne w folderze Wykresy gestosci.")
+#cat("\n\nWykresy gestosci zosatna zapisne w folderze Wykresy gestosci.")
 sink()
 rm(tmp)
 
@@ -281,7 +281,7 @@ for(i in 1:length(rozklad_iloczyn)){
     } else {
       cat("Dla danej", cn[i], "nie występują różnice pomiędzy grupami. P-value =", tmp_p)
     }
-    cat("\nWykres zapisano do pliku", path)
+    #cat("\nWykres zapisano do pliku", path)
     
     rm(path)
     next
@@ -377,6 +377,10 @@ sink("output/korelacje.txt")
 for(i in 1:length(groupsNames)){
   cat("_________Korelacje w grupie", groupsNames[i],"_________\n")
   
+  kor_table <- data.frame((matrix(ncol = length(cn), nrow = length(cn))), row.names = cn)
+  colnames(kor_table) <- cn
+  kor_table[grID,grID] <- "#"
+  
   dir.create(paste("output/wykresy/korelacje_",groupsNames[i], sep = ""))
   tested <- dataModified %>% filter(dataModified[, grID] == groupsNames[i])
   #pdf(file = paste("output/korelacja_",groupsNames[i],".pdf", sep = ""))
@@ -387,6 +391,8 @@ for(i in 1:length(groupsNames)){
     cat("\n")
     for(k in 1:length(dataModified)){
       if (k == grID | j == k | !any(is.numeric(dataModified[, j])) | !any(is.numeric(dataModified[, k]))){
+        kor_table[j,k] <- "#"
+        kor_table[k,j] <- "#"
         next
       }
       
@@ -394,20 +400,43 @@ for(i in 1:length(groupsNames)){
       
       if(kor$p.value < 0.05){
         cat("Dla danych",cn[j], "i", cn[k], okresl_korelacje(kor$estimate), "\n")
+        
+        if(kor$estimate < -0.2){
+          kor_table[j,k] <- "-"
+        } else if(kor$estimate > 0.2){
+          kor_table[j,k] <- "+"
+        } else {
+          kor_table[j,k] <- "0"
+        }
+        
         kor_plot <- ggscatter(tested,
-                              x=cn[j], y=cn[k],
-                              add="reg.line",conf.int=TRUE,
-                              cor.coef=TRUE,cor.method="pearson",
-                              color="grupa",fill="grupa",
+                              x=cn[j], 
+                              y=cn[k],
+                              add="reg.line",
+                              conf.int=TRUE,
+                              cor.coef=TRUE,
+                              cor.method="pearson",
+                              color="darkgreen",
+                              fill="lightgreen",
         )
         ggexport(kor_plot, filename = paste("output/wykresy/korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg", sep = ""))
         #dev.off()
-        cat("Wykresy zostały narysowane w output/wykresy/korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg\n\n", sep = "")
+        #cat("Wykresy zostały narysowane w output/wykresy/korelacje_",groupsNames[i],"/korelacja_",cn[j],"_",cn[k],".jpg\n\n", sep = "")
       } else {
         cat("Dla danych",cn[j], "i", cn[k], "p-value =", kor$p.value, "co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).\n")
+        kor_table[j,k] <- "0"
       }
     }
+    write.csv2(kor_table, file = (paste("output/wykresy/korelacje_", groupsNames[i],"/korelacje_", groupsNames[i],".csv", sep = "")))
   }
+  cat("\n")
+}
+sink()
+
+sink("output/korelacje_podsumowanie.txt")
+for(i in 1:length(groupsNames)){
+  cat("Korelacje w gupie",groupsNames[i],":\n")
+  print(read.csv2(paste("output/wykresy/korelacje_", groupsNames[i],"/korelacje_", groupsNames[i],".csv", sep = "")))
   cat("\n")
 }
 sink()

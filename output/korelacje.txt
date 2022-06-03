@@ -17,23 +17,13 @@ Dla danych hsCRP i HGB p-value = 0.8749737 co wskazuje na brak korelacji miedzy 
 Dla danych hsCRP i HCT p-value = 0.851356 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych hsCRP i MCHC p-value = 0.4805771 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych hsCRP i MON jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_hsCRP_MON.jpg
-
 Dla danych hsCRP i LEU jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_hsCRP_LEU.jpg
-
 
 Dla danych ERY i wiek p-value = 0.6335053 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i hsCRP p-value = 0.9298402 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i PLT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_ERY_PLT.jpg
-
 Dla danych ERY i HGB jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_ERY_HGB.jpg
-
 Dla danych ERY i HCT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_ERY_HCT.jpg
-
 Dla danych ERY i MCHC p-value = 0.889281 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i MON p-value = 0.3746554 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i LEU p-value = 0.7503804 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -41,8 +31,6 @@ Dla danych ERY i LEU p-value = 0.7503804 co wskazuje na brak korelacji miedzy da
 Dla danych PLT i wiek p-value = 0.5590249 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i hsCRP p-value = 0.1508487 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_PLT_ERY.jpg
-
 Dla danych PLT i HGB p-value = 0.1688097 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i HCT p-value = 0.1861028 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i MCHC p-value = 0.2325238 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -52,30 +40,18 @@ Dla danych PLT i LEU p-value = 0.3639828 co wskazuje na brak korelacji miedzy da
 Dla danych HGB i wiek p-value = 0.4727555 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i hsCRP p-value = 0.8749737 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_HGB_ERY.jpg
-
 Dla danych HGB i PLT p-value = 0.1688097 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i HCT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_HGB_HCT.jpg
-
 Dla danych HGB i MCHC jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_HGB_MCHC.jpg
-
 Dla danych HGB i MON p-value = 0.4913007 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i LEU p-value = 0.8908543 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 
 Dla danych HCT i wiek p-value = 0.6305036 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i hsCRP p-value = 0.851356 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_HCT_ERY.jpg
-
 Dla danych HCT i PLT p-value = 0.1861028 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i HGB jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_HCT_HGB.jpg
-
 Dla danych HCT i MCHC jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_HCT_MCHC.jpg
-
 Dla danych HCT i MON p-value = 0.3800597 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i LEU p-value = 0.7894489 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 
@@ -84,39 +60,27 @@ Dla danych MCHC i hsCRP p-value = 0.4805771 co wskazuje na brak korelacji miedzy
 Dla danych MCHC i ERY p-value = 0.889281 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MCHC i PLT p-value = 0.2325238 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MCHC i HGB jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_MCHC_HGB.jpg
-
 Dla danych MCHC i HCT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_MCHC_HCT.jpg
-
 Dla danych MCHC i MON p-value = 0.6480089 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MCHC i LEU p-value = 0.6911065 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 
 Dla danych MON i wiek p-value = 0.4991829 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i hsCRP jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_MON_hsCRP.jpg
-
 Dla danych MON i ERY p-value = 0.3746554 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i PLT p-value = 0.8771702 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i HGB p-value = 0.4913007 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i HCT p-value = 0.3800597 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i MCHC p-value = 0.6480089 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i LEU jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_MON_LEU.jpg
-
 
 Dla danych LEU i wiek p-value = 0.8309994 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i hsCRP jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_LEU_hsCRP.jpg
-
 Dla danych LEU i ERY p-value = 0.7503804 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i PLT p-value = 0.3639828 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i HGB p-value = 0.8908543 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i HCT p-value = 0.7894489 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i MCHC p-value = 0.6911065 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i MON jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR1/korelacja_LEU_MON.jpg
-
 
 _________Korelacje w grupie CHOR2 _________
 
@@ -125,8 +89,6 @@ Dla danych wiek i hsCRP p-value = 0.7407924 co wskazuje na brak korelacji miedzy
 Dla danych wiek i ERY p-value = 0.7591881 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i PLT p-value = 0.352946 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i HGB jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR2/korelacja_wiek_HGB.jpg
-
 Dla danych wiek i HCT p-value = 0.4693106 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i MCHC p-value = 0.8495619 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i MON p-value = 0.2101245 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -145,8 +107,6 @@ Dla danych ERY i wiek p-value = 0.7591881 co wskazuje na brak korelacji miedzy d
 Dla danych ERY i hsCRP p-value = 0.7208833 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i PLT p-value = 0.1466928 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i HGB jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR2/korelacja_ERY_HGB.jpg
-
 Dla danych ERY i HCT p-value = 0.3286963 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i MCHC p-value = 0.4704184 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i MON p-value = 0.2852717 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -162,12 +122,8 @@ Dla danych PLT i MON p-value = 0.6238041 co wskazuje na brak korelacji miedzy da
 Dla danych PLT i LEU p-value = 0.4382984 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 
 Dla danych HGB i wiek jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR2/korelacja_HGB_wiek.jpg
-
 Dla danych HGB i hsCRP p-value = 0.5116672 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_CHOR2/korelacja_HGB_ERY.jpg
-
 Dla danych HGB i PLT p-value = 0.4182204 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i HCT p-value = 0.3182138 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i MCHC p-value = 0.562232 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -215,16 +171,12 @@ _________Korelacje w grupie KONTROLA _________
 
 Dla danych wiek i hsCRP p-value = 0.3551162 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_wiek_ERY.jpg
-
 Dla danych wiek i PLT p-value = 0.1537619 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i HGB p-value = 0.2624625 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i HCT p-value = 0.06788853 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i MCHC p-value = 0.100593 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i MON p-value = 0.8064407 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych wiek i LEU jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_wiek_LEU.jpg
-
 
 Dla danych hsCRP i wiek p-value = 0.3551162 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych hsCRP i ERY p-value = 0.2016524 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -236,48 +188,28 @@ Dla danych hsCRP i MON p-value = 0.7611659 co wskazuje na brak korelacji miedzy 
 Dla danych hsCRP i LEU p-value = 0.4625111 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 
 Dla danych ERY i wiek jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_ERY_wiek.jpg
-
 Dla danych ERY i hsCRP p-value = 0.2016524 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i PLT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_ERY_PLT.jpg
-
 Dla danych ERY i HGB jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_ERY_HGB.jpg
-
 Dla danych ERY i HCT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_ERY_HCT.jpg
-
 Dla danych ERY i MCHC jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_ERY_MCHC.jpg
-
 Dla danych ERY i MON p-value = 0.6634034 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych ERY i LEU p-value = 0.1653932 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 
 Dla danych PLT i wiek p-value = 0.1537619 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i hsCRP p-value = 0.5726589 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_PLT_ERY.jpg
-
 Dla danych PLT i HGB p-value = 0.4573913 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i HCT p-value = 0.08725363 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych PLT i MCHC jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_PLT_MCHC.jpg
-
 Dla danych PLT i MON jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_PLT_MON.jpg
-
 Dla danych PLT i LEU p-value = 0.3272008 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 
 Dla danych HGB i wiek p-value = 0.2624625 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i hsCRP p-value = 0.3254017 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_HGB_ERY.jpg
-
 Dla danych HGB i PLT p-value = 0.4573913 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i HCT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_HGB_HCT.jpg
-
 Dla danych HGB i MCHC p-value = 0.1784838 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i MON p-value = 0.1887253 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HGB i LEU p-value = 0.09798309 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -285,12 +217,8 @@ Dla danych HGB i LEU p-value = 0.09798309 co wskazuje na brak korelacji miedzy d
 Dla danych HCT i wiek p-value = 0.06788853 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i hsCRP p-value = 0.1068038 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_HCT_ERY.jpg
-
 Dla danych HCT i PLT p-value = 0.08725363 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i HGB jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_HCT_HGB.jpg
-
 Dla danych HCT i MCHC p-value = 0.8184878 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i MON p-value = 0.3164781 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych HCT i LEU p-value = 0.07692544 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -298,11 +226,7 @@ Dla danych HCT i LEU p-value = 0.07692544 co wskazuje na brak korelacji miedzy d
 Dla danych MCHC i wiek p-value = 0.100593 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MCHC i hsCRP p-value = 0.3237172 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MCHC i ERY jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_MCHC_ERY.jpg
-
 Dla danych MCHC i PLT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_MCHC_PLT.jpg
-
 Dla danych MCHC i HGB p-value = 0.1784838 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MCHC i HCT p-value = 0.8184878 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MCHC i MON p-value = 0.3918649 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -312,18 +236,12 @@ Dla danych MON i wiek p-value = 0.8064407 co wskazuje na brak korelacji miedzy d
 Dla danych MON i hsCRP p-value = 0.7611659 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i ERY p-value = 0.6634034 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i PLT jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_MON_PLT.jpg
-
 Dla danych MON i HGB p-value = 0.1887253 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i HCT p-value = 0.3164781 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i MCHC p-value = 0.3918649 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych MON i LEU jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_MON_LEU.jpg
-
 
 Dla danych LEU i wiek jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_LEU_wiek.jpg
-
 Dla danych LEU i hsCRP p-value = 0.4625111 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i ERY p-value = 0.1653932 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i PLT p-value = 0.3272008 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
@@ -331,6 +249,4 @@ Dla danych LEU i HGB p-value = 0.09798309 co wskazuje na brak korelacji miedzy d
 Dla danych LEU i HCT p-value = 0.07692544 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i MCHC p-value = 0.6102397 co wskazuje na brak korelacji miedzy danymi (p-value < 0.05).
 Dla danych LEU i MON jest bardzo silna korelacja ujemna. 
-Wykresy zostały narysowane w output/wykresy/korelacje_KONTROLA/korelacja_LEU_MON.jpg
-
 
